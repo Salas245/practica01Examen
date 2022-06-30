@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Practica01</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Practica 01</div>
+        
+        <h2>Tabla de Estados</h2>
+        
+        <div th:if="${estados != null and !estados.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Capital</th>
+                        <th>Cantidad de Poblacion</th>
+                        <th>Cantidad de Costas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="estados : ${estados}">
+                        <td th:text="${estados.nombre}"></td>
+                        <td th:text="${estados.capital}"></td>
+                        <td th:text="${estados.poblacion}"></td>
+                        <td th:text="${estados.costas}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${clientes == null or clientes.empty}">
+            No hay clientes para mostrar...
+        </div>
+    </body>
+</html>
